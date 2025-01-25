@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text should be visible.
+  </div>
+
+  <script>
+    const element = document.getElementById("myNonExistentDiv");
+    if (element) {
+      element.style.display = "none";
+    } else {
+      console.log("Element 'myNonExistentDiv' not found.");
+    }
+    // Alternatively, to handle the missing element gracefully, consider adding the element if it doesn't exist:
+    if (!element){
+        let newDiv = document.createElement('div');
+        newDiv.id = "myNonExistentDiv";
+        newDiv.innerText = "Newly created element";
+        document.body.appendChild(newDiv);
+    }
+  </script>
+</body>
+</html>
